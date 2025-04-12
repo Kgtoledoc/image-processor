@@ -1,0 +1,9 @@
+[submodule "grpc-apps/app_a"]
+	path = grpc-apps/app_a
+	url = https://github.com/Kgtoledoc/app_a.git
+[submodule "grpc-apps/app_b"]
+	path = grpc-apps/app_b
+	url = https://github.com/Kgtoledoc/app_b.git
+[submodule "infrastructure"]
+	path = infrastructure
+	url = https://github.com/Kgtoledoc/infrastructure.git
