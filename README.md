@@ -62,12 +62,15 @@ Este proyecto centraliza los subproyectos `app_a`, `app_b` e `infrastructure`.
 
 Después de clonar este repositorio, inicializa y actualiza los submódulos:
 
+```bash
 git submodule update --init --recursive
-
+```
 ## Actualización de Submódulos
 Para actualizar un submódulo a la última versión del repositorio remoto:
 
+```bash
 cd app_a
 git pull origin main
+```
 
 Esta estructura te permitirá gestionar cada parte de tu proyecto de manera independiente mientras las mantienes organizadas bajo un proyecto central.
