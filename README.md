@@ -74,3 +74,15 @@ git pull origin main
 ```
 
 Esta estructura te permitirá gestionar cada parte de tu proyecto de manera independiente mientras las mantienes organizadas bajo un proyecto central.
+
+## AWS Load Balancer Controller
+Se agrega modulo que permite la creacion de ALB controller en el cluster de EKS. Esto permite que el servicio Ingress pueda ser creado internamente desde el cluster de Kubernetes.
+
+## Deployments en EKS
+Los deployments usando el buildspec.yml permiten tener un mejor control de los stages, asi como tambien tener un control desde un solo punto de agente. Para esto, se agrega una nueva linea que permite autenticarse al cluster y poder hacer los deployments respectivos.
+
+## Frontend
+En Proceso
+
+## Pruebas
+Se puede probar la api usando Curl o Postman, cargando una imagen que tenga en su ambiente local.
