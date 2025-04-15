@@ -81,8 +81,33 @@ Se agrega modulo que permite la creacion de ALB controller en el cluster de EKS.
 ## Deployments en EKS
 Los deployments usando el buildspec.yml permiten tener un mejor control de los stages, asi como tambien tener un control desde un solo punto de agente. Para esto, se agrega una nueva linea que permite autenticarse al cluster y poder hacer los deployments respectivos.
 
+
+# Obtener el aws-auth configmap
+```bash
+kubectl get configmap aws-auth -n kube-system -o yaml > aws-auth-configmap.yaml
+```
+Edit the file to add your role
+Add the following under `mapRoles`:
+- rolearn: arn:aws:iam::<YOUR_ACCOUNT_ID>:role/EksCodeBuildKubectlRole
+  username: build
+  groups:
+  - system:masters
+
+```bash
+kubectl apply -f aws-auth-configmap.yaml
+```
 ## Frontend
 En Proceso
 
 ## Pruebas
-Se puede probar la api usando Curl o Postman, cargando una imagen que tenga en su ambiente local.
+Se puede probar la api usando Curl o Postman, cargando una imagen que tenga en su ambiente local o apuntando a la url del balanceador.
+
+```bash
+# Start services in local
+docker-compose up -d
+# Delete services in local
+docker-compose down
+```
+
+```bash
+curl -X POST -F "image=@pago.jpg" http://localhost:8080/process

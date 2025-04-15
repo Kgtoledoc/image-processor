@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app_a:
+    build:
+      context: ./grpc-apps/app_a  # Cambia esto a la ruta de tu App A
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app_b
+
+  app_b:
+    build:
+      context: ./grpc-apps/app_b  # Cambia esto a la ruta de tu App B
+    ports:
+      - "50051:50051"
