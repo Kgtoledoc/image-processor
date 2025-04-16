@@ -81,6 +81,8 @@ Se agrega modulo que permite la creacion de ALB controller en el cluster de EKS.
 ## Deployments en EKS
 Los deployments usando el buildspec.yml permiten tener un mejor control de los stages, asi como tambien tener un control desde un solo punto de agente. Para esto, se agrega una nueva linea que permite autenticarse al cluster y poder hacer los deployments respectivos.
 
+http://URL-ALB/process
+
 
 # Obtener el aws-auth configmap
 ```bash
@@ -111,3 +113,13 @@ docker-compose down
 
 ```bash
 curl -X POST -F "image=@pago.jpg" http://localhost:8080/process
+curl -X POST -F "image=@pago.jpg" http://ALB-URL/process
+```
+
+## Destruir Infra
+```bash
+terraform destroy
+```
+
+## Next Step
+Configurar un ingress para manejar todo el trafico usando nginx ingress controller.
